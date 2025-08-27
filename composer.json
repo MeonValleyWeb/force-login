@@ -1,0 +1,9 @@
+{
+  "name": "meonvalleyweb/force-login",
+  "type": "wordpress-muplugin",
+  "autoload": {
+    "psr-4": {
+      "MVW\\ForceLogin\\": "src/"
+    }
+  }
+}
