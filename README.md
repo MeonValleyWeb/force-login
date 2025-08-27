@@ -23,6 +23,16 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
 
 ---
 
+## Why whitelist endpoints?
+
+- **Health checks / uptime**: allow `/healthz` or `/status` so monitors (UptimeRobot, Pingdom) don’t see login redirects.
+- **Webhooks / callbacks**: permit URLs used by third-party services (payments, email, CRM) so they can reach your site.
+- **Custom REST routes**: expose only the routes your front end needs (e.g. `/wp-json/myplugin/v1/*`).
+- **Performance monitoring**: lightweight probes for APMs and cloud providers.
+- **SEO essentials**: keep `robots.txt`, sitemaps, and `favicon.ico` publicly accessible.
+
+---
+
 ## Use case
 
 - WordPress is the content backend.
@@ -113,6 +123,12 @@ Keep your patterns anchored and specific to avoid exposing the backend.
 - Locked out? Visit `/wp-login.php` directly to sign in.
 - Front-end requests failing? Verify the endpoint is on the allow list.
 - On Bedrock, confirm the site URL and home URL are set correctly.
+
+---
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
