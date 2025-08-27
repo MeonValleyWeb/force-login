@@ -128,7 +128,12 @@ Keep your patterns anchored and specific to avoid exposing the backend.
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md).
+### [1.0.0] - 2025-08-27
+#### Added
+- Initial release of Force Login plugin for headless WordPress setups
+- Restricts backend (`/wp-admin/`) to authenticated users
+- Allows GraphQL and REST API endpoints for headless front-ends
+- Basic whitelist of essential endpoints (cron, ajax, robots.txt, sitemaps, uploads)
 
 ---
 
