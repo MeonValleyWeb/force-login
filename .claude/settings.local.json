@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(export SHELL=/bin/bash)",
+      "Bash(bash -c \"git status\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

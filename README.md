@@ -18,6 +18,7 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
   - `/sitemap*.xml` (sitemaps and indexes)
   - `/wp-content/uploads/*` (media)
   - `/favicon.ico`
+  - `/newrelic` (New Relic monitoring)
 - Logged-in users visiting the backend root get redirected to the dashboard.
 - Works with Bedrock layouts (handles root path vs `/wp/`).
 
@@ -127,6 +128,10 @@ Keep your patterns anchored and specific to avoid exposing the backend.
 ---
 
 ## Changelog
+
+### [1.0.1] - 2025-08-28
+#### Added
+- New Relic monitoring endpoint allowlist pattern (`/newrelic`) to support APM monitoring
 
 ### [1.0.0] - 2025-08-27
 #### Added

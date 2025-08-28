@@ -29,6 +29,7 @@ add_action('init', function () {
         '#^/sitemap\.xml$#',
         '#^/sitemaps?-.*\.xml$#',
         '#^/wp-content/uploads/.*#',          // media
+        '#^/newrelic(?:/|$)#',                // New Relic monitoring
     ];
     foreach ($allowed_patterns as $pattern) {
         if (preg_match($pattern, $uri)) return;
