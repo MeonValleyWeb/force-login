@@ -1,9 +1,37 @@
 {
   "name": "meonvalleyweb/force-login",
-  "type": "wordpress-muplugin",
-  "autoload": {
-    "psr-4": {
-      "MVW\\ForceLogin\\": "src/"
+  "description": "Forces login for backend access in headless WordPress setups while allowing GraphQL/REST API endpoints and essential paths.",
+  "version": "1.0.1",
+  "type": "wordpress-plugin",
+  "keywords": ["wordpress", "plugin", "security", "login", "headless", "rest-api", "graphql"],
+  "homepage": "https://github.com/MeonValleyWeb/force-login",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrew Wilkinson",
+      "email": "andrew@meonvalleyweb.com",
+      "homepage": "https://meonvalleyweb.com",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "issues": "https://github.com/MeonValleyWeb/force-login/issues",
+    "source": "https://github.com/MeonValleyWeb/force-login"
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "classmap": ["force-login.php"]
+  },
+  "archive": {
+    "exclude": [
+      ".git*",
+      ".github*",
+      "tests",
+      "phpunit.xml*",
+      ".phpcs.xml*",
+      "composer.lock"
+    ]
   }
 }
