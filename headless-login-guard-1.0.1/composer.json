@@ -1,0 +1,56 @@
+{
+  "name": "meonvalleyweb/headless-login-guard",
+  "description": "Forces login for backend access in headless WordPress setups while allowing GraphQL/REST API endpoints and essential paths.",
+  "version": "1.0.1",
+  "type": "wordpress-plugin",
+  "keywords": ["wordpress", "plugin", "security", "login", "headless", "rest-api", "graphql"],
+  "homepage": "https://github.com/MeonValleyWeb/headless-login-guard",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrew Wilkinson",
+      "email": "andrew@meonvalleyweb.com",
+      "homepage": "https://meonvalleyweb.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/MeonValleyWeb/headless-login-guard/issues",
+    "source": "https://github.com/MeonValleyWeb/headless-login-guard"
+  },
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "wp-coding-standards/wpcs": "^3.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "phpunit/phpunit": "^9.0",
+    "yoast/phpunit-polyfills": "^1.0",
+    "wp-cli/wp-cli": "^2.8"
+  },
+  "autoload": {
+    "classmap": ["force-login.php"]
+  },
+  "scripts": {
+    "phpcs": "phpcs .",
+    "phpcbf": "phpcbf .",
+    "phpunit": "phpunit",
+    "test": ["@phpcs", "@phpunit"],
+    "install-codestandards": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "archive": {
+    "exclude": [
+      ".git*",
+      ".github*",
+      "tests",
+      "phpunit.xml*",
+      ".phpcs.xml*",
+      "composer.lock"
+    ]
+  }
+}
