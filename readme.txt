@@ -1,8 +1,8 @@
-=== Force Login ===
+=== Headless Login Guard ===
 Contributors: andrewwilkinson
 Tags: login, security, headless, rest-api, graphql
 Requires at least: 6.0
-Tested up to: 6.6
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.0.1
 License: MIT
@@ -74,6 +74,12 @@ Yes! The plugin correctly handles both standard WordPress installs and Bedrock l
 = Can I add custom endpoints? =
 
 Yes, use the `force_login_allowed_patterns` filter to add your own regex patterns for additional endpoints that should remain public.
+
+== Screenshots ==
+
+1. The Force Login plugin requires no configuration - just activate and it works immediately
+2. Attempting to access /wp-admin while logged out redirects to the login page
+3. After logging in, the WordPress dashboard is fully accessible
 
 == Changelog ==
 

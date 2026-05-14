@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 772 250" width="772" height="250">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2271b1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#135e96;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="772" height="250" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative geometric shapes -->
+  <circle cx="700" cy="50" r="80" fill="#1a568c" opacity="0.5"/>
+  <circle cx="650" cy="200" r="60" fill="#1a568c" opacity="0.3"/>
+  <circle cx="100" cy="200" r="100" fill="#1a568c" opacity="0.2"/>
+  
+  <!-- Large shield icon -->
+  <g transform="translate(140, 125) scale(3)">
+    <!-- Shield -->
+    <path d="M0 -30 L20 -22 L20 0 Q20 12 0 25 Q-20 12 -20 0 L-20 -22 Z" 
+          fill="white" 
+          stroke="#ffffff" 
+          stroke-width="1.5"/>
+    
+    <!-- Lock body -->
+    <rect x="-8" y="-2" width="16" height="12" rx="1.5" fill="#2271b1"/>
+    
+    <!-- Lock shackle -->
+    <path d="M-6 -2 V-6 Q-6 -9 0 -9 Q6 -9 6 -6 V-2" 
+          fill="none" 
+          stroke="#2271b1" 
+          stroke-width="2.5" 
+          stroke-linecap="round"/>
+    
+    <!-- Keyhole -->
+    <circle cx="0" cy="3" r="1.5" fill="white"/>
+    <path d="M0 4.5 L0 7" stroke="white" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Shield icon repeated on right side (smaller, decorative) -->
+  <g transform="translate(600, 125) scale(1.5)" opacity="0.3">
+    <path d="M0 -30 L20 -22 L20 0 Q20 12 0 25 Q-20 12 -20 0 L-20 -22 Z" 
+          fill="white" 
+          stroke="#ffffff" 
+          stroke-width="1.5"/>
+  </g>
+</svg>
