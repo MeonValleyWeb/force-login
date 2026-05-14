@@ -1,7 +1,23 @@
-# Force Login for Headless WordPress
+<div align="center">
+
+<img src=".wordpress-org/icon-256x256.png" alt="Headless Login Guard" width="128" height="128">
+
+# Headless Login Guard
+
+**Forces login for backend access in headless WordPress setups while allowing GraphQL/REST API endpoints.**
+
+[![WordPress](https://img.shields.io/badge/WordPress-6.9%2B-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/)
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4.svg?style=flat-square&logo=php)](https://php.net/)
+[![CI](https://github.com/MeonValleyWeb/headless-login-guard/workflows/CI/badge.svg)](https://github.com/MeonValleyWeb/headless-login-guard/actions)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Twitter Follow](https://img.shields.io/twitter/follow/meonvalleyweb?style=social)](https://twitter.com/meonvalleyweb)
+
+</div>
+
+---
 
 A lightweight plugin that **forces login for backend access** in a headless WordPress setup.
-Keeps your WordPress dashboard private while allowing your front end (e.g. Astro) to pull content via GraphQL/REST.
+Keeps your WordPress dashboard private while allowing your front end (e.g. Astro, Next.js) to pull content via GraphQL/REST.
 
 ---
 
@@ -26,7 +42,7 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
 
 ## Why whitelist endpoints?
 
-- **Health checks / uptime**: allow `/healthz` or `/status` so monitors (UptimeRobot, Pingdom) don’t see login redirects.
+- **Health checks / uptime**: allow `/healthz` or `/status` so monitors (UptimeRobot, Pingdom) don't see login redirects.
 - **Webhooks / callbacks**: permit URLs used by third-party services (payments, email, CRM) so they can reach your site.
 - **Custom REST routes**: expose only the routes your front end needs (e.g. `/wp-json/myplugin/v1/*`).
 - **Performance monitoring**: lightweight probes for APMs and cloud providers.
@@ -45,7 +61,7 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
 
 ## Requirements
 
-- WordPress 6.x+
+- WordPress 6.0+
 - PHP 7.4+ (tested with PHP 8.x)
 - Optional: [WPGraphQL](https://www.wpgraphql.com/)
 
@@ -53,36 +69,23 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
 
 ## Installation
 
-### Classic (wp-content) install
+### From WordPress.org (Recommended)
 
-1. Copy this plugin folder to `wp-content/plugins/force-login`  
-2. Activate **Force Login** in **Admin → Plugins**
+1. Go to **Plugins → Add New** in your WordPress admin
+2. Search for "Headless Login Guard"
+3. Click **Install** then **Activate**
 
-### Bedrock (Composer) install
+### Manual Install
 
-If the repo is not on Packagist, declare it as a VCS repository and require it:
+1. Download the latest release from [GitHub Releases](https://github.com/MeonValleyWeb/headless-login-guard/releases)
+2. Upload to `wp-content/plugins/headless-login-guard/`
+3. Activate in **Admin → Plugins**
 
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/MeonValleyWeb/force-login"
-    }
-  ],
-  "require": {
-    "meonvalleyweb/force-login": "dev-main"
-  }
-}
-```
-
-Then run:
+### Composer (Bedrock)
 
 ```bash
-composer update meonvalleyweb/force-login
+composer require meonvalleyweb/headless-login-guard
 ```
-
-Activate the plugin in **wp-admin → Plugins**.
 
 ---
 
@@ -91,7 +94,7 @@ Activate the plugin in **wp-admin → Plugins**.
 - Hooks on `init`.
 - Immediately returns for CLI, cron, and AJAX contexts.
 - Allows specific public endpoints (see list above) for headless traffic.
-- If the request is the login page, it’s allowed.
+- If the request is the login page, it's allowed.
 - If the user is authenticated:
   - Root requests (`/` or site root path) redirect to the dashboard.
   - Other requests proceed.
@@ -104,41 +107,61 @@ This keeps the backend private without breaking your headless front end.
 
 ## Customisation
 
-Need extra open endpoints (e.g. a health check URL)?  
-Edit the `$allowed_patterns` array in `force-login.php` to add your regex path(s).
-
-Examples you might add:
+Developers can customize allowed endpoints using the `force_login_allowed_patterns` filter:
 
 ```php
-'#^/healthz$#',            // custom health check
-'#^/status$#',             // uptime checks
-'#^/wp-json/acf/v3/.*#',   // specific REST namespace
+add_filter('force_login_allowed_patterns', function($patterns) {
+    $patterns[] = '#^/healthz$#';           // custom health check
+    $patterns[] = '#^/status$#';             // uptime checks
+    $patterns[] = '#^/wp-json/acf/v3/.*#';  // specific REST namespace
+    return $patterns;
+});
 ```
 
 Keep your patterns anchored and specific to avoid exposing the backend.
 
 ---
 
+## Testing
+
+This plugin includes a comprehensive test suite:
+
+```bash
+# Install dependencies
+composer install
+
+# Run coding standards check
+composer run phpcs
+
+# Run unit tests
+composer run phpunit
+
+# Run full test suite
+composer run test
+```
+
+---
+
 ## Troubleshooting
 
-- Locked out? Visit `/wp-login.php` directly to sign in.
-- Front-end requests failing? Verify the endpoint is on the allow list.
-- On Bedrock, confirm the site URL and home URL are set correctly.
+- **Locked out?** Visit `/wp-login.php` directly to sign in.
+- **Front-end requests failing?** Verify the endpoint is on the allow list.
+- **On Bedrock?** Confirm the site URL and home URL are set correctly.
 
 ---
 
 ## Changelog
 
-### [1.0.1] - 2025-08-28
-#### Added
-- New Relic monitoring endpoint allowlist pattern (`/newrelic`) to support APM monitoring
+See [CHANGELOG.md](CHANGELOG.md) for all version history.
+
+### [1.0.1] - 2025-05-14
+- Renamed plugin to "Headless Login Guard" for WordPress.org
+- Added GitHub Actions CI/CD, PHPUnit tests, coding standards
+- Added WordPress.org assets (icons, banners, screenshots)
+- Security: sanitize $_SERVER inputs
 
 ### [1.0.0] - 2025-08-27
-#### Added
-- Initial release of Force Login plugin for headless WordPress setups
-- Restricts backend (`/wp-admin/`) to authenticated users
-- Allows GraphQL and REST API endpoints for headless front-ends
-- Basic whitelist of essential endpoints (cron, ajax, robots.txt, sitemaps, uploads)
+- Initial release
 
 ---
 
@@ -152,11 +175,12 @@ Keep your patterns anchored and specific to avoid exposing the backend.
 
 ## Credits
 
-**Author:** Andrew Wilkinson  
-**Company:** [MeonValleyWeb](https://meonvalleyweb.com)
+**Author:** [Andrew Wilkinson](https://github.com/MeonValleyWeb)  
+**Company:** [MeonValleyWeb](https://meonvalleyweb.com)  
+**Twitter:** [@meonvalleyweb](https://twitter.com/meonvalleyweb)
 
 ---
 
 ## License
 
-MIT License. See `LICENSE`.
+MIT License. See [LICENSE](LICENSE).
