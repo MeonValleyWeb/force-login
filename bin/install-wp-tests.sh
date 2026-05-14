@@ -300,9 +300,15 @@ install_db() {
 	fi
 	if $DB_CLIENT --user="$DB_USER" --password="$DB_PASS"$EXTRA --execute='show databases;' | grep -q "^$DB_NAME$";
 	then
-		echo -e "${YELLOW}Reinstalling will delete the existing test database ($DB_NAME)${RESET}"
-		read -p 'Are you sure you want to proceed? [y/N]: ' DELETE_EXISTING_DB
-		recreate_db $DELETE_EXISTING_DB
+		if [ "${CI:-false}" = "true" ] || [ -n "${GITHUB_ACTIONS:-}" ]; then
+			# In CI environment, automatically recreate the database
+			echo -e "${YELLOW}CI environment detected. Recreating database ($DB_NAME)...${RESET}"
+			recreate_db "y"
+		else
+			echo -e "${YELLOW}Reinstalling will delete the existing test database ($DB_NAME)${RESET}"
+			read -p 'Are you sure you want to proceed? [y/N]: ' DELETE_EXISTING_DB
+			recreate_db $DELETE_EXISTING_DB
+		fi
 	else
 		echo -e "${CYAN}Creating database ($DB_NAME)...${RESET}"
 		create_db
