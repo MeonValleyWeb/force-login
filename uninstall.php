@@ -11,10 +11,10 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 // Clean up any plugin options if we had any (currently we don't store any).
-// Example: delete_option( 'force_login_option_name' );
+// Example: delete_option( 'force_login_option_name' ).
 
 // Clean up any transients if we had any (currently we don't use any).
-// Example: delete_transient( 'force_login_transient_name' );
+// Example: delete_transient( 'force_login_transient_name' ).
 
 // No database tables to drop or user meta to clean up for this plugin.
 // The plugin is stateless and doesn't store any data.
