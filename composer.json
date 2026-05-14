@@ -32,8 +32,8 @@
     "classmap": ["force-login.php"]
   },
   "scripts": {
-    "phpcs": "phpcs",
-    "phpcbf": "phpcbf",
+    "phpcs": "phpcs .",
+    "phpcbf": "phpcbf .",
     "phpunit": "phpunit",
     "test": ["@phpcs", "@phpunit"],
     "install-codestandards": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
