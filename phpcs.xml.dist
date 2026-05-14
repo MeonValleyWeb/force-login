@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset name="Headless Login Guard">
+    <description>PHPCS configuration for Headless Login Guard</description>
+
+    <!-- Use WordPress Coding Standards -->
+    <rule ref="WordPress">
+        <!-- Exclude file name check for main plugin file -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+    </rule>
+
+    <!-- Exclude directories -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/bin/*</exclude-pattern>
+    <exclude-pattern>*/.wordpress-org/*</exclude-pattern>
+
+    <!-- Exclude build artifacts -->
+    <exclude-pattern>*.zip</exclude-pattern>
+    <exclude-pattern>composer.lock</exclude-pattern>
+
+    <!-- Set minimum PHP version -->
+    <config name="minimum_supported_wp_version" value="6.0"/>
+</ruleset>
