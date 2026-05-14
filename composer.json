@@ -1,10 +1,10 @@
 {
-  "name": "meonvalleyweb/force-login",
+  "name": "meonvalleyweb/headless-login-guard",
   "description": "Forces login for backend access in headless WordPress setups while allowing GraphQL/REST API endpoints and essential paths.",
   "version": "1.0.1",
   "type": "wordpress-plugin",
   "keywords": ["wordpress", "plugin", "security", "login", "headless", "rest-api", "graphql"],
-  "homepage": "https://github.com/MeonValleyWeb/force-login",
+  "homepage": "https://github.com/MeonValleyWeb/headless-login-guard",
   "license": "MIT",
   "authors": [
     {
@@ -15,8 +15,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/MeonValleyWeb/force-login/issues",
-    "source": "https://github.com/MeonValleyWeb/force-login"
+    "issues": "https://github.com/MeonValleyWeb/headless-login-guard/issues",
+    "source": "https://github.com/MeonValleyWeb/headless-login-guard"
   },
   "require": {
     "php": ">=7.4"
@@ -36,7 +36,7 @@
     "phpcbf": "phpcbf --standard=WordPress .",
     "phpunit": "phpunit",
     "test": ["@phpcs", "@phpunit"],
-    "make-pot": "wp i18n make-pot . languages/force-login.pot --domain=force-login",
+    "make-pot": "wp i18n make-pot . languages/headless-login-guard.pot --domain=headless-login-guard",
     "install-codestandards": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
   },
   "config": {
