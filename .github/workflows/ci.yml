@@ -110,7 +110,7 @@ jobs:
     
     - name: Check POT file exists
       run: |
-        if [ ! -f languages/force-login.pot ]; then
+        if [ ! -f languages/headless-login-guard.pot ]; then
           echo "POT file not generated!"
           exit 1
         fi
