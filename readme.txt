@@ -53,7 +53,7 @@ add_filter('force_login_allowed_patterns', function($patterns) {
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/force-login` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/headless-login-guard` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. The plugin will automatically start protecting your backend - no configuration needed!
 
