@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.1] - 2025-05-14
+## [1.1.0] - 2026-08-04
+
+### Fixed
+- Allow WordPress core, Yoast-style, and nested sitemap XML paths
+- Match allowlisted endpoints on subdirectory, Bedrock, and multisite installations
+- Preserve query strings without duplicating the site path in login redirect destinations
+- Run the PHPUnit suite instead of exiting during WordPress test bootstrap
+
+### Changed
+- Parse and match normalized request paths separately from query strings
+- Send no-cache headers before login redirects
+- Add redirect, sitemap, query-string, and subdirectory integration coverage
+
+## [1.0.1] - 2026-05-14
 
 ### Changed
 - **Plugin renamed** from "Force Login" to "Headless Login Guard" to avoid WordPress.org naming conflict
@@ -13,8 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `Tested up to:` to WordPress 6.9
 
 ### Added
-- GitHub Actions CI/CD workflow for automated testing (PHP 7.4-8.3, WP 6.2-6.9)
-- PHPUnit test suite with 11 unit tests
+- GitHub Actions CI/CD workflow for automated testing (PHP 8.1-8.3, WP 6.2-6.9)
+- PHPUnit test suite
 - WordPress Coding Standards (WPCS) integration via Composer
 - WordPress.org assets: icons (128x128, 256x256), banners (772x250, 1544x500), screenshots
 - Translation template (.pot file)
