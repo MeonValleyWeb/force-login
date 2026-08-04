@@ -57,6 +57,20 @@ add_filter('force_login_allowed_patterns', function($patterns) {
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. The plugin will automatically start protecting your backend - no configuration needed!
 
+= Composer (Bedrock) =
+
+Recent Bedrock projects include WP Packages by default:
+
+`composer require wp-plugin/headless-login-guard`
+
+For other Composer-managed WordPress projects, add the repository first:
+
+`composer config repositories.wp-packages composer https://repo.wp-packages.org`
+
+Then install the plugin:
+
+`composer require wp-plugin/headless-login-guard`
+
 == Frequently Asked Questions ==
 
 = I'm locked out! How do I access my site? =

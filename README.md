@@ -83,8 +83,17 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
 
 ### Composer (Bedrock)
 
+Recent Bedrock projects include [WP Packages](https://wp-packages.org/) by default:
+
 ```bash
-composer require meonvalleyweb/headless-login-guard
+composer require wp-plugin/headless-login-guard
+```
+
+For other Composer-managed WordPress projects, add the WP Packages repository first:
+
+```bash
+composer config repositories.wp-packages composer https://repo.wp-packages.org
+composer require wp-plugin/headless-login-guard
 ```
 
 ---
