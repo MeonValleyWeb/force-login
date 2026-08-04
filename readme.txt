@@ -2,9 +2,9 @@
 Contributors: andrew40
 Tags: login, security, headless, rest-api, graphql
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -24,7 +24,7 @@ A lightweight plugin that **forces login for backend access** in a headless Word
   * `/wp-admin/admin-ajax.php` (AJAX)
   * `/wp-cron.php` (cron)
   * `/robots.txt`
-  * `/sitemap*.xml` (sitemaps and indexes)
+  * WordPress core and common SEO sitemap XML paths
   * `/wp-content/uploads/*` (media)
   * `/favicon.ico`
   * `/newrelic` (New Relic monitoring)
@@ -83,6 +83,14 @@ Yes, use the `force_login_allowed_patterns` filter to add your own regex pattern
 
 == Changelog ==
 
+= 1.1.0 =
+* Fixed: Allow WordPress core, Yoast-style, and nested sitemap XML paths
+* Fixed: Match allowlisted endpoints correctly on subdirectory, Bedrock, and multisite installations
+* Fixed: Preserve query strings without duplicating the site path in login redirect destinations
+* Improved: Parse request paths separately from query strings
+* Improved: Send no-cache headers before login redirects
+* Improved: Added redirect, sitemap, query-string, and subdirectory integration tests
+
 = 1.0.1 =
 * Added: New Relic monitoring endpoint allowlist pattern (`/newrelic`) to support APM monitoring
 * Added: WordPress.org plugin directory compatibility
@@ -97,6 +105,9 @@ Yes, use the `force_login_allowed_patterns` filter to add your own regex pattern
 * Basic whitelist of essential endpoints (cron, ajax, robots.txt, sitemaps, uploads)
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Fixes sitemap access and request handling for subdirectory and Bedrock installations.
 
 = 1.0.1 =
 This version adds WordPress.org compatibility and developer customization options. Safe to upgrade.

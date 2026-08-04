@@ -1,10 +1,10 @@
-# Copyright (C) 2025 Andrew Wilkinson
+# Copyright (C) 2026 Andrew Wilkinson
 # This file is distributed under the MIT license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Force Login 1.0.1\n"
-"Report-Msgid-Bugs-To: https://github.com/MeonValleyWeb/force-login/issues\n"
-"POT-Creation-Date: 2025-05-14 10:00:00+00:00\n"
+"Project-Id-Version: Headless Login Guard 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/MeonValleyWeb/headless-login-guard/issues\n"
+"POT-Creation-Date: 2026-08-04 00:00:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
 #. Plugin Name of the plugin/theme
-msgid "Force Login"
+msgid "Headless Login Guard"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/MeonValleyWeb/force-login"
+msgid "https://github.com/MeonValleyWeb/headless-login-guard"
 msgstr ""
 
 #. Description of the plugin/theme

@@ -6,8 +6,8 @@
 
 **Forces login for backend access in headless WordPress setups while allowing GraphQL/REST API endpoints.**
 
-[![WordPress](https://img.shields.io/badge/WordPress-6.9%2B-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/)
-[![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4.svg?style=flat-square&logo=php)](https://php.net/)
+[![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/)
+[![PHP](https://img.shields.io/badge/PHP-8.1%2B-777bb4.svg?style=flat-square&logo=php)](https://php.net/)
 [![CI](https://github.com/MeonValleyWeb/headless-login-guard/workflows/CI/badge.svg)](https://github.com/MeonValleyWeb/headless-login-guard/actions)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 [![Twitter Follow](https://img.shields.io/twitter/follow/meonvalleyweb?style=social)](https://twitter.com/meonvalleyweb)
@@ -31,7 +31,7 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
   - `/wp-admin/admin-ajax.php` (AJAX)
   - `/wp-cron.php` (cron)
   - `/robots.txt`
-  - `/sitemap*.xml` (sitemaps and indexes)
+  - WordPress core and common SEO sitemap XML paths
   - `/wp-content/uploads/*` (media)
   - `/favicon.ico`
   - `/newrelic` (New Relic monitoring)
@@ -154,7 +154,12 @@ composer run test
 
 See [CHANGELOG.md](CHANGELOG.md) for all version history.
 
-### [1.0.1] - 2025-05-14
+### [1.1.0] - 2026-08-04
+- Fixed WordPress core, Yoast-style, and nested sitemap access
+- Fixed allowlisted endpoints and redirect destinations on subdirectory installations
+- Added redirect, query-string, sitemap, and subdirectory integration tests
+
+### [1.0.1] - 2026-05-14
 - Renamed plugin to "Headless Login Guard" for WordPress.org
 - Added GitHub Actions CI/CD, PHPUnit tests, coding standards
 - Added WordPress.org assets (icons, banners, screenshots)
