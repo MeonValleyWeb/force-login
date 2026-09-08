@@ -3,7 +3,7 @@
  * Plugin Name: Headless Login Guard
  * Plugin URI: https://github.com/MeonValleyWeb/headless-login-guard
  * Description: Forces login for backend access in headless WordPress setups while allowing GraphQL/REST API endpoints and essential paths.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Andrew Wilkinson
  * Author URI: https://meonvalleyweb.com
  * License: MIT
@@ -11,7 +11,7 @@
  * Text Domain: headless-login-guard
  * Domain Path: /languages
  * Requires at least: 6.0
- * Tested up to: 7.0
+ * Tested up to: 7.1
  * Requires PHP: 8.1
  *
  * @package HeadlessLoginGuard
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants.
-define( 'FORCE_LOGIN_VERSION', '1.1.0' );
+define( 'FORCE_LOGIN_VERSION', '1.1.1' );
 define( 'FORCE_LOGIN_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FORCE_LOGIN_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'FORCE_LOGIN_PLUGIN_FILE', __FILE__ );

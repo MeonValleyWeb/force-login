@@ -5,6 +5,7 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
+  workflow_dispatch:
 
 jobs:
   phpcs:
@@ -26,10 +27,10 @@ jobs:
     
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-php-${{ hashFiles('composer.json') }}
         restore-keys: |
           ${{ runner.os }}-php-
     
@@ -41,12 +42,30 @@ jobs:
       run: composer run phpcs
 
   phpunit:
-    name: PHPUnit Tests
+    name: WordPress ${{ matrix.wordpress-version }} / PHP ${{ matrix.php-version }}
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        php-versions: ['8.1', '8.2', '8.3']
-        wordpress-versions: ['6.2', '6.3', '6.4', '6.5', 'latest']
+        include:
+          - wordpress-version: '6.0'
+            php-version: '8.1'
+          - wordpress-version: '6.5'
+            php-version: '8.2'
+          - wordpress-version: '6.9'
+            php-version: '8.3'
+          - wordpress-version: '7.0'
+            php-version: '8.4'
+          - wordpress-version: '7.1'
+            php-version: '8.1'
+          - wordpress-version: '7.1'
+            php-version: '8.2'
+          - wordpress-version: '7.1'
+            php-version: '8.3'
+          - wordpress-version: '7.1'
+            php-version: '8.4'
+          - wordpress-version: '7.1'
+            php-version: '8.5'
     
     services:
       mysql:
@@ -64,16 +83,16 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-versions }}
+        php-version: ${{ matrix.php-version }}
         extensions: mbstring, mysqli
         coverage: none
     
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: vendor
-        key: ${{ runner.os }}-php-${{ matrix.php-versions }}-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-php-${{ matrix.php-version }}-${{ hashFiles('composer.json') }}
         restore-keys: |
           ${{ runner.os }}-php-
     
@@ -82,9 +101,9 @@ jobs:
     
     - name: Setup WordPress test environment
       env:
-        WP_VERSION: ${{ matrix.wordpress-versions }}
+        WP_VERSION: ${{ matrix.wordpress-version }}
       run: |
-        bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1:$MYSQL_PORT $WP_VERSION
+        bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1:3306 "$WP_VERSION"
     
     - name: Run PHPUnit
       run: composer run phpunit

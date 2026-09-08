@@ -27,7 +27,7 @@ class Force_Login_Test extends WP_UnitTestCase {
 	 */
 	public function test_plugin_loads() {
 		$this->assertTrue( class_exists( 'Force_Login' ) );
-		$this->assertSame( '1.1.0', FORCE_LOGIN_VERSION );
+		$this->assertSame( '1.1.1', FORCE_LOGIN_VERSION );
 	}
 
 	/**

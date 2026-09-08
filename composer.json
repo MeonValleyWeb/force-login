@@ -1,7 +1,7 @@
 {
   "name": "meonvalleyweb/headless-login-guard",
   "description": "Forces login for backend access in headless WordPress setups while allowing GraphQL/REST API endpoints and essential paths.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "wordpress-plugin",
   "keywords": ["wordpress", "plugin", "security", "login", "headless", "rest-api", "graphql"],
   "homepage": "https://github.com/MeonValleyWeb/headless-login-guard",
@@ -22,7 +22,7 @@
     "php": ">=8.1"
   },
   "require-dev": {
-    "wp-coding-standards/wpcs": "^3.0",
+    "wp-coding-standards/wpcs": "^3.4.1",
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
     "phpunit/phpunit": "^9.0",
     "yoast/phpunit-polyfills": "^1.0",

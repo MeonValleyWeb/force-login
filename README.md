@@ -61,8 +61,8 @@ Keeps your WordPress dashboard private while allowing your front end (e.g. Astro
 
 ## Requirements
 
-- WordPress 6.0+
-- PHP 8.1+ (recommended: 8.2 or 8.3)
+- WordPress 6.0+ (tested through 7.1)
+- PHP 8.1+ (recommended: 8.4 or 8.5)
 - Optional: [WPGraphQL](https://www.wpgraphql.com/)
 
 ---
@@ -162,6 +162,12 @@ composer run test
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for all version history.
+
+### [1.1.1] - 2026-09-08
+- Confirmed compatibility with WordPress 7.1
+- Added explicit WordPress 7.1 and PHP 8.1-8.5 CI coverage
+- Raised the WordPress Coding Standards development dependency to the patched 3.4.1 release
+- Included the corrected Composer installation instructions in the stable release
 
 ### [1.1.0] - 2026-08-04
 - Fixed WordPress core, Yoast-style, and nested sitemap access

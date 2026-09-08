@@ -2,9 +2,9 @@
 Contributors: andrew40
 Tags: login, security, headless, rest-api, graphql
 Requires at least: 6.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -97,6 +97,12 @@ Yes, use the `force_login_allowed_patterns` filter to add your own regex pattern
 
 == Changelog ==
 
+= 1.1.1 =
+* Compatibility: Added explicit WordPress 7.1 and PHP 8.1-8.5 test coverage
+* Security: Raised the minimum WordPress Coding Standards development dependency to 3.4.1
+* Maintenance: Refreshed the GitHub Actions test matrix and dependency cache action
+* Documentation: Included the corrected Composer installation instructions in the stable release
+
 = 1.1.0 =
 * Fixed: Allow WordPress core, Yoast-style, and nested sitemap XML paths
 * Fixed: Match allowlisted endpoints correctly on subdirectory, Bedrock, and multisite installations
@@ -119,6 +125,9 @@ Yes, use the `force_login_allowed_patterns` filter to add your own regex pattern
 * Basic whitelist of essential endpoints (cron, ajax, robots.txt, sitemaps, uploads)
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Confirms WordPress 7.1 compatibility and refreshes development tooling without changing runtime behavior.
 
 = 1.1.0 =
 Fixes sitemap access and request handling for subdirectory and Bedrock installations.
